@@ -42,6 +42,7 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ':common')
+    implementation project(path: ':CommonLibrary:commonLibrary')
 
     implementation Dependencies.hiltAndroid
     kapt Dependencies.hiltAndroidCompiler

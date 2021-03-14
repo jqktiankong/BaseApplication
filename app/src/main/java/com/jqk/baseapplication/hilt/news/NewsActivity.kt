@@ -3,6 +3,7 @@ package com.jqk.baseapplication.hilt.news
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
+import com.blankj.utilcode.util.LogUtils
 import com.jqk.common.base.BaseVBVMActivity
 import com.jqk.baseapplication.databinding.ActivityNewsBinding
 import com.jqk.common.db.User
@@ -40,7 +41,7 @@ class NewsActivity : BaseVBVMActivity<ActivityNewsBinding, NewsViewModel>() {
     }
 
     override fun initData() {
-
+    LogUtils.d("我是工具类")
     }
 
     override fun addLiveData() {
