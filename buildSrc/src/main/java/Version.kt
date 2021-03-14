@@ -1,5 +1,6 @@
 object Gradle {
     const val gradle = "4.0.0"
+    const val hiltAndroidGradlePlugin = "2.28-alpha"
 }
 
 object Android {
@@ -38,7 +39,8 @@ object AndroidX {
 }
 
 object Jetpack {
-    const val hilt = "1.0.0-alpha01"
+    const val hilt = "2.28-alpha"
+    const val hiltJetpack = "1.0.0-alpha01"
     const val room = "2.2.6"
 }
 

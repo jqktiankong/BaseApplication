@@ -1,6 +1,7 @@
 object Dependencies {
     const val gradle = "com.android.tools.build:gradle:${Gradle.gradle}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.kotlin}"
+   const val  hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Gradle.hiltAndroidGradlePlugin}"
 
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Kotlin.kotlin}"
     const val coreKtx = "androidx.core:core-ktx:${AndroidX.coreKtx}"
@@ -31,9 +32,9 @@ object Dependencies {
     const val rxpermissions = "com.github.tbruyelle:rxpermissions:${ThirdParty.rxpermissions}"
 
     const val hiltAndroid = "com.google.dagger:hilt-android:${Jetpack.hilt}"
-    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler::${Jetpack.hilt}"
-    const val hiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:${Jetpack.hilt}"
-    const val hiltCompiler = "androidx.hilt:hilt-compiler:${Jetpack.hilt}"
+    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Jetpack.hilt}"
+    const val hiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:${Jetpack.hiltJetpack}"
+    const val hiltCompiler = "androidx.hilt:hilt-compiler:${Jetpack.hiltJetpack}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Jetpack.room}"
     const val roomCompiler = "androidx.room:room-compiler:${Jetpack.room}"
