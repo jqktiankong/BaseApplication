@@ -17,14 +17,29 @@ object DefaultConfig {
     const val testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 }
 
+object Java {
+  const val javaVersion = 1.8
+}
+
 object Kotlin {
     const val kotlin = "1.3.72"
+    const val jvmTarget = 1.8
+
+    const val coroutines = "1.1.1"
 }
 
 object AndroidX {
     const val coreKtx = "1.3.2"
     const val appcompat = "1.2.0"
     const val constraintlayout = "2.0.1"
+    const val recyclerView = "1.0.0"
+    const val cardView = "1.0.0"
+    const val activityKtx = "1.1.0-rc01"
+}
+
+object Jetpack {
+    const val hilt = "1.0.0-alpha01"
+    const val room = "2.2.6"
 }
 
 object ThirdParty {

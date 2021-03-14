@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(ApplicationComponent::class)
-object RetrofitModule {
+object RetrofitHiltModule {
     @Singleton
     @Provides
     fun provideRetrofitService(): RetrofitService {

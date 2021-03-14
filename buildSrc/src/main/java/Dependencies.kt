@@ -7,6 +7,14 @@ object Dependencies {
     const val appcompat = "androidx.appcompat:appcompat:${AndroidX.appcompat}"
     const val constraintlayout =
         "androidx.constraintlayout:constraintlayout:${AndroidX.constraintlayout}"
+    const val recyclerview = "androidx.recyclerview:recyclerview:${AndroidX.recyclerView}"
+    const val cardview = "androidx.cardview:cardview:${AndroidX.cardView}"
+    const val activityKtx = "androidx.activity:activity-ktx:${AndroidX.activityKtx}"
+
+    const val kotlinxCoroutinesCore =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Kotlin.coroutines}"
+    const val kotlinxCoroutinesAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Kotlin.coroutines}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${ThirdParty.retrofit2}"
     const val converterGson = "com.squareup.retrofit2:converter-gson:${ThirdParty.retrofit2}"
@@ -19,8 +27,18 @@ object Dependencies {
     const val rxjava = "io.reactivex.rxjava2:rxjava:${ThirdParty.rxjava}"
     const val rxandroid = "io.reactivex.rxjava2:rxandroid:${ThirdParty.rxandroid}"
 
-    const val eventbus ="org.greenrobot:eventbus:${ThirdParty.eventbus}"
+    const val eventbus = "org.greenrobot:eventbus:${ThirdParty.eventbus}"
     const val rxpermissions = "com.github.tbruyelle:rxpermissions:${ThirdParty.rxpermissions}"
+
+    const val hiltAndroid = "com.google.dagger:hilt-android:${Jetpack.hilt}"
+    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler::${Jetpack.hilt}"
+    const val hiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:${Jetpack.hilt}"
+    const val hiltCompiler = "androidx.hilt:hilt-compiler:${Jetpack.hilt}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Jetpack.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Jetpack.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Jetpack.room}"
+    const val roomTesting = "androidx.room:room-testing:${Jetpack.room}"
 
     const val junit = "junit:junit:${Test.junit}"
     const val ext = "androidx.test.ext:junit:${Test.ext}"

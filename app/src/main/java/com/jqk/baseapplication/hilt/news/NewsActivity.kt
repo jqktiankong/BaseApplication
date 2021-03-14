@@ -5,7 +5,9 @@ import android.util.Log
 import androidx.lifecycle.Observer
 import com.jqk.common.base.BaseVBVMActivity
 import com.jqk.baseapplication.databinding.ActivityNewsBinding
+import com.jqk.common.db.User
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_news.*
 
 @AndroidEntryPoint
 class NewsActivity : BaseVBVMActivity<ActivityNewsBinding, NewsViewModel>() {
@@ -19,15 +21,37 @@ class NewsActivity : BaseVBVMActivity<ActivityNewsBinding, NewsViewModel>() {
         mBinding.load.setOnClickListener {
             mViewModel.getNews()
         }
+
+        insert.setOnClickListener {
+            mViewModel.insert(User(1, "", "", 22, ""))
+        }
+
+        update.setOnClickListener {
+
+        }
+
+        query.setOnClickListener {
+
+        }
+
+        delete.setOnClickListener {
+
+        }
     }
 
     override fun initData() {
-        mViewModel.getNews()
+
     }
 
     override fun addLiveData() {
-        mViewModel.newsLiveData.observe(this@NewsActivity, Observer {
-            Log.d("News", "$it")
-        })
+        mViewModel.apply {
+            newsLiveData.observe(this@NewsActivity, Observer {
+                Log.d("News", "$it")
+            })
+
+            insertLiveData.observe(this@NewsActivity, Observer {
+                Log.d("Insert", "$it")
+            })
+        }
     }
 }
