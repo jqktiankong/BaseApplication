@@ -1,8 +1,8 @@
 include ':common'
 include ':app'
 
-include ':CommonLibrary'
-project(':CommonLibrary').projectDir = new File('D:\\MyProgram\\Android\\AndroidStudioProjects\\CommonLibrary')
-include ':CommonLibrary:commonLibrary'
+//include ':CommonLibrary'
+//project(':CommonLibrary').projectDir = new File('D:\\MyProgram\\Android\\AndroidStudioProjects\\CommonLibrary')
+//include ':CommonLibrary:commonLibrary'
 
 rootProject.name = "BaseApplication"
