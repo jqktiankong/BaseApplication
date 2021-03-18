@@ -19,7 +19,7 @@ object DefaultConfig {
 }
 
 object Java {
-  const val javaVersion = 1.8
+    const val javaVersion = 1.8
 }
 
 object Kotlin {
@@ -45,8 +45,8 @@ object Jetpack {
 }
 
 object ThirdParty {
-    const val retrofit2 = "2.9.0"
-    const val okhttp = "3.9.0"
+    const val retrofit2 = "2.6.0" // 5.0以下系统使用2.6.x版本
+    const val okhttp = "3.12.0" // 5.0以下系统使用3.12.x版本
     const val eventbus = "3.1.1"
     const val rxpermissions = "0.10.2"
 
