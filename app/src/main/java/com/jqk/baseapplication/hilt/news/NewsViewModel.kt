@@ -1,8 +1,11 @@
 package com.jqk.baseapplication.hilt.news
 
+import android.util.Log
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.jqk.common.base.BaseViewModel
+import com.jqk.common.base.onFailure
+import com.jqk.common.base.onSuccess
 import com.jqk.common.db.User
 import com.jqk.common.network.retrofit.bean.HttpResult
 import com.jqk.common.network.retrofit.bean.News
@@ -15,9 +18,16 @@ class NewsViewModel @ViewModelInject constructor(private val newsModel: NewsMode
 
     fun getNews() {
         viewModelScope.launch {
-            newsLiveData.value = newsModel.getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+            requestHttp {
+                newsModel
+                    .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+            }.onSuccess {
+                newsLiveData.value = it
+                Log.d("news", "onSuccess = $it")
+            }.onFailure {
+                Log.d("news", "onFailure = $it")
+            }
         }
-
     }
 
     fun insert(user: User) {
