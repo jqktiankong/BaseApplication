@@ -17,7 +17,7 @@ class NewsViewModel @ViewModelInject constructor(private val newsModel: NewsMode
     val insertLiveData: MutableLiveData<Long> = MutableLiveData()
 
     fun getNews() {
-        viewModelScope.launch {
+        launch {
             requestHttp {
                 newsModel
                     .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
@@ -28,6 +28,20 @@ class NewsViewModel @ViewModelInject constructor(private val newsModel: NewsMode
                 Log.d("news", "onFailure = $it")
             }
         }
+
+        request(
+            block = {
+                newsModel
+                    .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+            },
+            success = {
+                newsLiveData.value = it
+                Log.d("news", "onSuccess = $it")
+            },
+            error = {
+                Log.d("news", "onFailure = $it")
+            }
+        )
     }
 
     fun insert(user: User) {
