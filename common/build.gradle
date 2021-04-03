@@ -39,6 +39,12 @@ android {
     }
 }
 
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     api Dependencies.kotlinStdlib
@@ -75,6 +81,11 @@ dependencies {
 
     api Dependencies.eventbus
     api Dependencies.rxpermissions
+
+    api Dependencies.arouterApi
+    kapt Dependencies.arouterCompiler
+
+    api Dependencies.utilcodex
 
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.ext

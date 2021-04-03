@@ -1,7 +1,8 @@
 object Dependencies {
     const val gradle = "com.android.tools.build:gradle:${Gradle.gradle}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.kotlin}"
-   const val  hiltAndroidGradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Gradle.hiltAndroidGradlePlugin}"
+    const val hiltAndroidGradlePlugin =
+        "com.google.dagger:hilt-android-gradle-plugin:${Gradle.hiltAndroidGradlePlugin}"
 
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Kotlin.kotlin}"
     const val coreKtx = "androidx.core:core-ktx:${AndroidX.coreKtx}"
@@ -31,9 +32,15 @@ object Dependencies {
     const val eventbus = "org.greenrobot:eventbus:${ThirdParty.eventbus}"
     const val rxpermissions = "com.github.tbruyelle:rxpermissions:${ThirdParty.rxpermissions}"
 
+    const val arouterApi = "com.alibaba:arouter-api:${ThirdParty.aouter}"
+    const val arouterCompiler = "com.alibaba:arouter-compiler:${ThirdParty.aouter}"
+
+   const val utilcodex = "com.blankj:utilcodex:${ThirdParty.utilcodex}"
+
     const val hiltAndroid = "com.google.dagger:hilt-android:${Jetpack.hilt}"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Jetpack.hilt}"
-    const val hiltLifecycleViewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:${Jetpack.hiltJetpack}"
+    const val hiltLifecycleViewmodel =
+        "androidx.hilt:hilt-lifecycle-viewmodel:${Jetpack.hiltJetpack}"
     const val hiltCompiler = "androidx.hilt:hilt-compiler:${Jetpack.hiltJetpack}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Jetpack.room}"

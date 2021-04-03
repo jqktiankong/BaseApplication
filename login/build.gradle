@@ -8,7 +8,6 @@ android {
     buildToolsVersion Android.buildToolsVersion
 
     defaultConfig {
-        applicationId DefaultConfig.applicationId
         minSdkVersion DefaultConfig.minSdkVersion
         targetSdkVersion DefaultConfig.targetSdkVersion
         versionCode DefaultConfig.versionCode

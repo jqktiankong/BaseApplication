@@ -52,6 +52,10 @@ object ThirdParty {
 
     const val rxjava = "2.2.0"
     const val rxandroid = "2.0.2"
+
+    const val aouter = "1.5.1"
+
+    const val utilcodex = "1.30.6"
 }
 
 object Test {
