@@ -10,10 +10,19 @@ class HiltApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        if (AppUtils.isAppDebug()) {
-            ARouter.openLog()
+        initARouter(this)
+    }
+
+    private fun initARouter(app: Application) {
+        try {
+            if (AppUtils.isAppDebug()) {
+                ARouter.openLog()
+                ARouter.openDebug()
+            }
+            ARouter.init(app)
+        } catch (e: Exception) {
             ARouter.openDebug()
+            ARouter.init(app)
         }
-        ARouter.init(this) // 尽可能早，推荐在Application中初始化
     }
 }
