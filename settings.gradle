@@ -1,3 +1,4 @@
+include ':setting'
 include ':login'
 include ':common'
 include ':app'

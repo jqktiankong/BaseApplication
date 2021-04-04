@@ -17,6 +17,6 @@ class MainActivity2 : BaseVBActivity<ActivityMainBinding>() {
     }
 
     override fun addLiveData() {
-        TODO("Not yet implemented")
+
     }
 }

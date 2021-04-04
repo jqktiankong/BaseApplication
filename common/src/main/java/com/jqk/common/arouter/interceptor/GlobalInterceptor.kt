@@ -5,27 +5,31 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
-import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.SPUtils
-import com.jqk.common.arouter.RouterProvider
 
-@Interceptor(name = "/service/interceptor", priority = 9)
-class GlobalInterceptor : IInterceptor {
+@Interceptor(name = LoginInterceptor.PATH, priority = 9)
+class LoginInterceptor : IInterceptor {
     private var context: Context? = null
 
+    companion object {
+        const val PATH = "/common/interceptor"
+    }
+
     override fun process(postcard: Postcard?, callback: InterceptorCallback?) {
+        // 设置导航超时的时间
+        postcard?.timeout = 1
 
         if (SPUtils.getInstance().getBoolean("login")) {
-            LogUtils.d("不需要拦截")
+            // 不需要拦截
             callback?.onContinue(postcard)
         } else {
-            LogUtils.d("需要拦截")
-            context?.let { RouterProvider.loginRouter?.showLoginUI(it, "woshicanshu") }
+            // 需要拦截
         }
+
+        callback?.onContinue(postcard)
     }
 
     override fun init(context: Context?) {
-        LogUtils.d("拦截器初始化")
         this.context = context
     }
 }
