@@ -10,11 +10,14 @@ import com.blankj.utilcode.util.LogUtils
 import com.jqk.common.arouter.RouterProvider
 import com.jqk.common.arouter.bean.ParamData
 import com.jqk.common.base.BaseVBActivity
+import com.jqk.common.base.BaseVBVMActivity
 import com.jqk.login.databinding.LoginActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.login_activity_login.*
 
+@AndroidEntryPoint
 @Route(path = LoginActivity.PATH)
-class LoginActivity : BaseVBActivity<LoginActivityLoginBinding>() {
+class LoginActivity : BaseVBVMActivity<LoginActivityLoginBinding, NewsViewModel>() {
     @JvmField
     @Autowired(name = EXTRA_PARAM)
     var param: String? = null
@@ -25,6 +28,10 @@ class LoginActivity : BaseVBActivity<LoginActivityLoginBinding>() {
 
     override fun initViewBinding(): LoginActivityLoginBinding {
         return LoginActivityLoginBinding.inflate(layoutInflater)
+    }
+
+    override fun initViewModel(): NewsViewModel {
+        return defaultViewModelProviderFactory.create(NewsViewModel::class.java)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -38,6 +45,8 @@ class LoginActivity : BaseVBActivity<LoginActivityLoginBinding>() {
     override fun initData() {
         LogUtils.d("param  = $param")
         LogUtils.d("param2  = $param2")
+
+        mViewModel.getNews()
     }
 
     override fun addLiveData() {
