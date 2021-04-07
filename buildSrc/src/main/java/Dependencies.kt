@@ -3,6 +3,8 @@ object Dependencies {
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Kotlin.kotlin}"
     const val hiltAndroidGradlePlugin =
         "com.google.dagger:hilt-android-gradle-plugin:${Gradle.hiltAndroidGradlePlugin}"
+    const val navigationSafeArgsGradlePlugin =
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${Jetpack.navigation}"
 
     const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Kotlin.kotlin}"
     const val coreKtx = "androidx.core:core-ktx:${AndroidX.coreKtx}"
@@ -35,7 +37,9 @@ object Dependencies {
     const val arouterApi = "com.alibaba:arouter-api:${ThirdParty.aouter}"
     const val arouterCompiler = "com.alibaba:arouter-compiler:${ThirdParty.aouter}"
 
-   const val utilcodex = "com.blankj:utilcodex:${ThirdParty.utilcodex}"
+    const val utilcodex = "com.blankj:utilcodex:${ThirdParty.utilcodex}"
+
+    const val multidex = "com.android.support:multidex:${ThirdParty.multidex}"
 
     const val hiltAndroid = "com.google.dagger:hilt-android:${Jetpack.hilt}"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Jetpack.hilt}"
@@ -47,6 +51,15 @@ object Dependencies {
     const val roomCompiler = "androidx.room:room-compiler:${Jetpack.room}"
     const val roomKtx = "androidx.room:room-ktx:${Jetpack.room}"
     const val roomTesting = "androidx.room:room-testing:${Jetpack.room}"
+
+    const val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Jetpack.navigation}"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Jetpack.navigation}"
+    const val navigationModule =
+        "androidx.navigation:navigation-dynamic-features-fragment:${Jetpack.navigation}"
+    const val navigationTesting = "androidx.navigation:navigation-testing:${Jetpack.navigation}"
+    const val navigationCompose =
+        "androidx.navigation:navigation-compose:${Jetpack.navigationJetpack}"
 
     const val junit = "junit:junit:${Test.junit}"
     const val ext = "androidx.test.ext:junit:${Test.ext}"

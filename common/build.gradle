@@ -69,6 +69,11 @@ dependencies {
     implementation Dependencies.roomKtx
     testImplementation Dependencies.roomTesting
 
+    api Dependencies.navigationFragment
+    api Dependencies.navigationUi
+    api Dependencies.navigationModule
+    androidTestImplementation Dependencies.navigationTesting
+
     api Dependencies.retrofit
     api Dependencies.converterGson
     api Dependencies.adapterRxjava2

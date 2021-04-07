@@ -23,6 +23,9 @@
 
         </activity>
         <activity android:name=".hilt.news.NewsActivity">
+
+        </activity>
+        <activity android:name=".navigation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

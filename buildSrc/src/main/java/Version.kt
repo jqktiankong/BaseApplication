@@ -42,6 +42,8 @@ object Jetpack {
     const val hilt = "2.28-alpha"
     const val hiltJetpack = "1.0.0-alpha01"
     const val room = "2.2.6"
+    const val navigation = "2.3.3"
+    const val navigationJetpack = "1.0.0-alpha08"
 }
 
 object ThirdParty {
@@ -56,6 +58,8 @@ object ThirdParty {
     const val aouter = "1.5.1"
 
     const val utilcodex = "1.30.6"
+
+    const val multidex = "1.0.3"
 }
 
 object Test {
