@@ -3,23 +3,23 @@ package com.jqk.baseapplication.navigation
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import com.jqk.baseapplication.R
 import com.jqk.baseapplication.databinding.FragmentBlank2Binding
-import com.jqk.common.base.BaseVBVMFragment
+import com.jqk.common.base.BaseVBFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class BlankFragment2 : BaseVBVMFragment<FragmentBlank2Binding, BlankViewModel>() {
+@AndroidEntryPoint
+class BlankFragment2 : BaseVBFragment<FragmentBlank2Binding>() {
+    private val viewModel: BlankViewModel by viewModels()
 
     override fun initViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): FragmentBlank2Binding {
         return FragmentBlank2Binding.inflate(inflater, container, false)
-    }
-
-    override fun initViewModel(): BlankViewModel {
-        return defaultViewModelProviderFactory.create(BlankViewModel::class.java)
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -29,16 +29,16 @@ class BlankFragment2 : BaseVBVMFragment<FragmentBlank2Binding, BlankViewModel>()
         }
 
         mBinding.get.setOnClickListener {
-            mViewModel.getString2()
+            viewModel.getString2()
         }
     }
 
     override fun initData() {
-        mViewModel.getString()
+        viewModel.getString()
     }
 
     override fun addLiveData() {
-        mViewModel.apply {
+        viewModel.apply {
             stringLiveData.observe(this@BlankFragment2, Observer {
 
                 mBinding.title.text = it

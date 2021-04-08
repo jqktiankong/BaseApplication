@@ -4,11 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelLazy
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.jqk.common.base.BaseVBVMActivity
 import com.jqk.baseapplication.databinding.ActivityNewsBinding
 import com.jqk.common.arouter.RouterProvider
 import com.jqk.common.arouter.bean.ParamData

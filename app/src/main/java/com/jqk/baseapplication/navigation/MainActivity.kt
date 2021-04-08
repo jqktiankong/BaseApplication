@@ -5,7 +5,9 @@ import androidx.navigation.findNavController
 import com.jqk.baseapplication.R
 import com.jqk.baseapplication.databinding.ActivityNavigationMainBinding
 import com.jqk.common.base.BaseVBActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseVBActivity<ActivityNavigationMainBinding>() {
     override fun initViewBinding(): ActivityNavigationMainBinding {
         return ActivityNavigationMainBinding.inflate(layoutInflater)
