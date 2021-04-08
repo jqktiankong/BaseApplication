@@ -2,39 +2,41 @@ package com.jqk.baseapplication.hilt.news
 
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelLazy
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jqk.common.base.BaseVBVMActivity
 import com.jqk.baseapplication.databinding.ActivityNewsBinding
 import com.jqk.common.arouter.RouterProvider
 import com.jqk.common.arouter.bean.ParamData
+import com.jqk.common.base.BaseVBActivity
 import com.jqk.common.db.User
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_news.*
 
 @AndroidEntryPoint
 @Route(path = NewsActivity.PATH)
-class NewsActivity : BaseVBVMActivity<ActivityNewsBinding, NewsViewModel>() {
+class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
     companion object {
         const val PATH = "/app/news"
     }
 
-    override fun initViewBinding() = ActivityNewsBinding.inflate(layoutInflater)
+    private val viewModel: NewsViewModel by viewModels()
 
-    override fun initViewModel(): NewsViewModel {
-        return defaultViewModelProviderFactory.create(NewsViewModel::class.java)
-    }
+    override fun initViewBinding() = ActivityNewsBinding.inflate(layoutInflater)
 
     override fun initView(savedInstanceState: Bundle?) {
         ARouter.getInstance().inject(this)
 
         mBinding.load.setOnClickListener {
-            mViewModel.getNews()
+            viewModel.getNews()
         }
 
         insert.setOnClickListener {
-            mViewModel.insert(User(1, "", "", 22, ""))
+            viewModel.insert(User(1, "", "", 22, ""))
         }
 
         update.setOnClickListener {
@@ -55,10 +57,11 @@ class NewsActivity : BaseVBVMActivity<ActivityNewsBinding, NewsViewModel>() {
     }
 
     override fun initData() {
+        viewModel.getNews()
     }
 
     override fun addLiveData() {
-        mViewModel.apply {
+        viewModel.apply {
             newsLiveData.observe(this@NewsActivity, Observer {
                 Log.d("News", "$it")
             })
