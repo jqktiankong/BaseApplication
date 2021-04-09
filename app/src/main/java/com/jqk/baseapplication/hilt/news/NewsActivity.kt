@@ -51,6 +51,8 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
         login.setOnClickListener {
             RouterProvider.loginRouter?.showLoginUI("我是参数", ParamData("我是参数2"))
         }
+
+        mBinding.mWidget.changeText()
     }
 
     override fun initData() {

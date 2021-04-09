@@ -51,4 +51,11 @@
         android:text="登录界面"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/delete" />
+
+    <com.jqk.baseapplication.widget.MyWidget
+        android:id="@+id/mWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login" />
 </androidx.constraintlayout.widget.ConstraintLayout>
