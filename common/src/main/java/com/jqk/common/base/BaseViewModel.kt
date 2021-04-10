@@ -32,7 +32,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     ) {
         viewModelScope.launch {
             runCatching {
-                withContext(Dispatchers.IO) { block() }
+                block()
             }.onSuccess {
                 success(it)
             }.onFailure {
@@ -48,10 +48,8 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     }
 
     fun <T> launchOnIO(block: suspend CoroutineScope.() -> T) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                block()
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            block()
         }
     }
 }
