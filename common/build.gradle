@@ -92,6 +92,9 @@ dependencies {
 
     api Dependencies.utilcodex
 
+    api Dependencies.koin
+    api Dependencies.koinViewModel
+
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.ext
     androidTestImplementation Dependencies.espresso

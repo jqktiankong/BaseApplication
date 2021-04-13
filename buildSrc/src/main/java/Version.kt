@@ -60,6 +60,8 @@ object ThirdParty {
     const val utilcodex = "1.30.6"
 
     const val multidex = "1.0.3"
+
+    const val koin = "2.2.2"
 }
 
 object Test {
