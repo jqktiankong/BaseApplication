@@ -1,5 +1,6 @@
 package com.jqk.baseapplication.koin
 
+import android.util.Log
 import com.jqk.common.base.BaseModel
 import com.jqk.common.db.User
 import com.jqk.common.db.UserDao
@@ -15,6 +16,7 @@ class NewsModel constructor(
 
     suspend fun getNews(type: String, key: String): HttpResult<News> {
         return requestHttp {
+            Log.d("news", "Thread name2 = ${Thread.currentThread().name}")
             retrofitService.getNew(type, key)
         }
     }

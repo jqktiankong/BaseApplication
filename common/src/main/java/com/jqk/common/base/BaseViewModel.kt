@@ -16,7 +16,9 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     suspend fun <T> requestHttp(request: suspend () -> HttpResult<T>): HttpResult<T> {
         val httpResult = HttpResult<T>()
         kotlin.runCatching {
-            request.invoke()
+            withContext(Dispatchers.IO) {
+                request.invoke()
+            }
         }.onSuccess {
             httpResult.data = it.data
         }.onFailure {
@@ -32,7 +34,9 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     ) {
         viewModelScope.launch {
             runCatching {
-                block()
+                withContext(Dispatchers.IO) {
+                    block()
+                }
             }.onSuccess {
                 success(it)
             }.onFailure {
