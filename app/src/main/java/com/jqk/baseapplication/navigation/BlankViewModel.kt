@@ -2,6 +2,7 @@ package com.jqk.baseapplication.navigation
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
+import com.blankj.utilcode.util.LogUtils
 import com.jqk.common.base.BaseViewModel
 
 class BlankViewModel : BaseViewModel {
@@ -16,6 +17,7 @@ class BlankViewModel : BaseViewModel {
     }
 
     fun getString2() {
+        LogUtils.d("getString2 = ${stringLiveData2.value}")
         stringLiveData2.value = "我是字符串2"
     }
 }

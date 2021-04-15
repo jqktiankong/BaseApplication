@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.blankj.utilcode.util.LogUtils
 
 abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
     private var isFragmentViewInit = false
@@ -18,20 +19,22 @@ abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (lastView == null) {
+            LogUtils.d("创建视图")
             mBinding = initViewBinding(
                 inflater,
                 container
             )
             lastView = mBinding.root
+        } else {
+            LogUtils.d("视图存在，不用重复创建")
         }
 
         return lastView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         if (!isFragmentViewInit) {
-            super.onViewCreated(view, savedInstanceState)
-
             initView(savedInstanceState)
             addLiveData()
             initData()

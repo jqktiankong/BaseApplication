@@ -1,6 +1,7 @@
 package com.jqk.baseapplication.hilt
 
 import android.app.Application
+import android.content.Context
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.AppUtils
@@ -13,6 +14,11 @@ import org.koin.core.logger.Level
 
 @HiltAndroidApp
 class HiltApplication : Application() {
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        initMultiDex()
+    }
+
     override fun onCreate() {
         super.onCreate()
         initARouter(this)
