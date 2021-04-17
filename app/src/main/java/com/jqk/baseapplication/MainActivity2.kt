@@ -9,7 +9,7 @@ class MainActivity2 : BaseVBActivity<ActivityMainBinding>() {
     override fun initViewBinding() = ActivityMainBinding.inflate(layoutInflater)
 
     override fun initView(savedInstanceState: Bundle?) {
-        mBinding.text.text = "fdsadfsafd"
+        binding.text.text = "fdsadfsafd"
     }
 
     override fun initData() {

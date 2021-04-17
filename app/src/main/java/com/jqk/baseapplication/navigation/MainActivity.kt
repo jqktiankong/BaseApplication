@@ -14,14 +14,14 @@ class MainActivity : BaseVBActivity<ActivityNavigationMainBinding>() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        mBinding.jump2.setOnClickListener {
+        binding.jump2.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("myArg", 1)
 
             findNavController(R.id.navHostFragment).navigate(R.id.blankFragment2, bundle)
         }
 
-        mBinding.jump3.setOnClickListener {
+        binding.jump3.setOnClickListener {
             val bundle = Bundle()
             bundle.putInt("myArg", 1)
 

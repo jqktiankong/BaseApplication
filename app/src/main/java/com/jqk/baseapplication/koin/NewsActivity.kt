@@ -25,31 +25,31 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         ARouter.getInstance().inject(this)
 
-        mBinding.load.setOnClickListener {
+        binding.load.setOnClickListener {
             viewModel.getNews()
         }
 
-        mBinding.insert.setOnClickListener {
+        binding.insert.setOnClickListener {
             viewModel.insert(User(1, "", "", 22, ""))
         }
 
-        mBinding.update.setOnClickListener {
+        binding.update.setOnClickListener {
 
         }
 
-        mBinding.query.setOnClickListener {
+        binding.query.setOnClickListener {
 
         }
 
-        mBinding.delete.setOnClickListener {
+        binding.delete.setOnClickListener {
 
         }
 
-        mBinding.login.setOnClickListener {
+        binding.login.setOnClickListener {
             RouterProvider.loginRouter?.showLoginUI("我是参数", ParamData("我是参数2"))
         }
 
-        mBinding.mWidget.changeText()
+        binding.widget.changeText()
     }
 
     override fun initData() {

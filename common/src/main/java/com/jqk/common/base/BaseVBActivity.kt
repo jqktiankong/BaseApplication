@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseVBActivity<T : ViewBinding> : BaseActivity() {
-    lateinit var mBinding: T
+    lateinit var binding: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = initViewBinding()
-        setContentView(mBinding.root)
+        binding = initViewBinding()
+        setContentView(binding.root)
         addLiveData()
         initView(savedInstanceState)
         initData()

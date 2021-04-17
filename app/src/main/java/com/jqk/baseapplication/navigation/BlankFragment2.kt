@@ -23,12 +23,12 @@ class BlankFragment2 : BaseVBFragment<FragmentBlank2Binding>() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-        mBinding.jump4.setOnClickListener {
+        binding.jump4.setOnClickListener {
             NavHostFragment.findNavController(this)
                 .navigate(R.id.action_blankFragment2_to_blankFragment4)
         }
 
-        mBinding.get.setOnClickListener {
+        binding.get.setOnClickListener {
             viewModel.getString2()
         }
     }
@@ -41,12 +41,12 @@ class BlankFragment2 : BaseVBFragment<FragmentBlank2Binding>() {
         viewModel.apply {
             stringLiveData.observe(this@BlankFragment2, Observer {
 
-                mBinding.title.text = it
+                binding.title.text = it
             })
 
             stringLiveData2.observe(this@BlankFragment2, Observer {
 
-                mBinding.title.text = it
+                binding.title.text = it
             })
         }
     }

@@ -29,11 +29,11 @@ class BlankFragment : BaseVBFragment<FragmentBlankBinding>() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        mBinding.jump2.setOnClickListener {
+        binding.jump2.setOnClickListener {
             findNavController().navigate(R.id.blankFragment2)
         }
 
-        mBinding.jump3.setOnClickListener {
+        binding.jump3.setOnClickListener {
             findNavController().navigate(R.id.blankFragment3)
         }
     }

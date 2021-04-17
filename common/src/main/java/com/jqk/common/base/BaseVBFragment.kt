@@ -11,7 +11,7 @@ import com.blankj.utilcode.util.LogUtils
 abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
     private var isFragmentViewInit = false
     var lastView: View? = null
-    lateinit var mBinding: T
+    lateinit var binding: T
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,11 +20,11 @@ abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
     ): View? {
         if (lastView == null) {
             LogUtils.d("创建视图")
-            mBinding = initViewBinding(
+            binding = initViewBinding(
                 inflater,
                 container
             )
-            lastView = mBinding.root
+            lastView = binding.root
         } else {
             LogUtils.d("视图存在，不用重复创建")
         }

@@ -12,7 +12,6 @@ import com.jqk.common.arouter.bean.ParamData
 import com.jqk.common.base.BaseVBActivity
 import com.jqk.common.db.User
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_news.*
 
 @AndroidEntryPoint
 @Route(path = NewsActivity.PATH)
@@ -28,31 +27,31 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         ARouter.getInstance().inject(this)
 
-        mBinding.load.setOnClickListener {
+        binding.load.setOnClickListener {
             viewModel.getNews()
         }
 
-        insert.setOnClickListener {
+        binding.insert.setOnClickListener {
             viewModel.insert(User(1, "", "", 22, ""))
         }
 
-        update.setOnClickListener {
+        binding.update.setOnClickListener {
 
         }
 
-        query.setOnClickListener {
+        binding.query.setOnClickListener {
 
         }
 
-        delete.setOnClickListener {
+        binding.delete.setOnClickListener {
 
         }
 
-        login.setOnClickListener {
+        binding.login.setOnClickListener {
             RouterProvider.loginRouter?.showLoginUI("我是参数", ParamData("我是参数2"))
         }
 
-        mBinding.mWidget.changeText()
+        binding.widget.changeText()
     }
 
     override fun initData() {
