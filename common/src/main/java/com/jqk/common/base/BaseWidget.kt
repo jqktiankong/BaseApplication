@@ -3,6 +3,7 @@ package com.jqk.common.base
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewbinding.ViewBinding
 
@@ -17,6 +18,8 @@ abstract class BaseWidget<T : ViewBinding> constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
     var binding: T
+
+    @LayoutRes
     var layoutId: Int
     var view: View
 
@@ -26,6 +29,7 @@ abstract class BaseWidget<T : ViewBinding> constructor(
         binding = initViewBinding()
     }
 
+    @LayoutRes
     abstract fun getLayoutResouseId(): Int
 
     abstract fun initViewBinding(): T
