@@ -56,6 +56,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
             block()
         }
     }
+
 }
 
 
