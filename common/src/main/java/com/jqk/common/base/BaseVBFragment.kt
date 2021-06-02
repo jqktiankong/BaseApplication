@@ -7,11 +7,23 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.blankj.utilcode.util.LogUtils
+import java.lang.NullPointerException
 
-abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
+abstract class BaseVBFragment<VB : ViewBinding> : Fragment() {
     private var isFragmentViewInit = false
     var lastView: View? = null
-    lateinit var binding: T
+
+    private var _binding: VB? = null
+    val binding: VB
+        get() {
+            if (_binding == null) {
+                kotlin.runCatching {
+                    throw NullPointerException()
+                }
+            }
+
+            return _binding!!
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,7 +32,7 @@ abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
     ): View? {
         if (lastView == null) {
             LogUtils.d("创建视图")
-            binding = initViewBinding(
+            _binding = initViewBinding(
                 inflater,
                 container
             )
@@ -43,10 +55,16 @@ abstract class BaseVBFragment<T : ViewBinding> : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        _binding = null
+    }
+
     abstract fun initViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): T
+    ): VB
 
     abstract fun initView(savedInstanceState: Bundle?)
 
