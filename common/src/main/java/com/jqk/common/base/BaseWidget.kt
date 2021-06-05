@@ -12,12 +12,12 @@ import androidx.viewbinding.ViewBinding
  *  date : 2021/04/16 16:22
  *  description :
  */
-abstract class BaseWidget<T : ViewBinding> constructor(
+abstract class BaseWidget<VB : ViewBinding> constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    var binding: T
+    var binding: VB
 
     @LayoutRes
     var layoutId: Int
@@ -32,6 +32,6 @@ abstract class BaseWidget<T : ViewBinding> constructor(
     @LayoutRes
     abstract fun getLayoutResouseId(): Int
 
-    abstract fun initViewBinding(): T
+    abstract fun initViewBinding(): VB
 
 }

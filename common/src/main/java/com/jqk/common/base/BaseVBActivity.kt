@@ -3,8 +3,8 @@ package com.jqk.common.base
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseVBActivity<T : ViewBinding> : BaseActivity() {
-    lateinit var binding: T
+abstract class BaseVBActivity<VB : ViewBinding> : BaseActivity() {
+    lateinit var binding: VB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +15,7 @@ abstract class BaseVBActivity<T : ViewBinding> : BaseActivity() {
         initData()
     }
 
-    abstract fun initViewBinding(): T
+    abstract fun initViewBinding(): VB
 
     abstract fun initView(savedInstanceState: Bundle?)
 

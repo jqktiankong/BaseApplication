@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="100dp"
+    android:background="#562387">
+
+
+    <Button
+        android:id="@+id/bt_positive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="positive"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bt_middle"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="middle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bt_negative"
+        app:layout_constraintStart_toEndOf="@id/bt_positive" />
+
+    <Button
+        android:id="@+id/bt_negative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="negative"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_middle" />
+</androidx.constraintlayout.widget.ConstraintLayout>
