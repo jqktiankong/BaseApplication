@@ -32,8 +32,8 @@
         android:label="fragment_blank3"
         tools:layout="@layout/fragment_blank3">
         <action
-            android:id="@+id/action_blankFragment3_to_blankFragment5"
-            app:destination="@id/blankFragment5" />
+            android:id="@+id/action_blankFragment3_to_blankFragment6"
+            app:destination="@id/blankFragment6" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment4"
@@ -41,8 +41,7 @@
         android:label="fragment_blank4"
         tools:layout="@layout/fragment_blank4" />
     <fragment
-        android:id="@+id/blankFragment5"
-        android:name="com.jqk.baseapplication.navigation.BlankFragment"
-        android:label="fragment_blank5"
-        tools:layout="@layout/fragment_blank5" />
+        android:id="@+id/blankFragment6"
+        android:name="com.jqk.baseapplication.navigation.BlankFragment6"
+        android:label="BlankFragment6" />
 </navigation>

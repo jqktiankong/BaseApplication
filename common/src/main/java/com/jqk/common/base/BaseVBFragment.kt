@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.blankj.utilcode.util.LogUtils
 import java.lang.NullPointerException
 
 abstract class BaseVBFragment<VB : ViewBinding> : Fragment() {
@@ -31,14 +30,11 @@ abstract class BaseVBFragment<VB : ViewBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         if (lastView == null) {
-            LogUtils.d("创建视图")
             _binding = initViewBinding(
                 inflater,
                 container
             )
             lastView = binding.root
-        } else {
-            LogUtils.d("视图存在，不用重复创建")
         }
 
         return lastView
