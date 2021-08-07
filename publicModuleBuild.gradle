@@ -1,0 +1,41 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+compileOptions {
+    sourceCompatibility Java.javaVersion
+    targetCompatibility Java.javaVersion
+}
+
+kotlinOptions {
+    jvmTarget = Kotlin.jvmTarget
+    useIR = true
+}
+buildFeatures {
+    compose true
+}
+composeOptions {
+    kotlinCompilerExtensionVersion Jetpack.compose
+    kotlinCompilerVersion Kotlin.kotlin
+}
+packagingOptions {
+    resources {
+        excludes += '/META-INF/{AL2.0,LGPL2.1}'
+    }
+}
+
+buildFeatures{
+    viewBinding = true
+}
+
+dependencies {
+    implementation Dependencies.hiltAndroid
+    kapt Dependencies.hiltAndroidCompiler
+    implementation Dependencies.hiltLifecycleViewmodel
+    kapt Dependencies.hiltCompiler
+    annotationProcessor Dependencies.hiltCompiler
+
+    implementation Dependencies.arouterApi
+    kapt Dependencies.arouterCompiler
+}

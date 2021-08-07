@@ -87,13 +87,13 @@ dependencies {
     api Dependencies.eventbus
     api Dependencies.rxpermissions
 
-    api Dependencies.arouterApi
+    implementation Dependencies.arouterApi
     kapt Dependencies.arouterCompiler
 
     api Dependencies.utilcodex
 
-    api Dependencies.koin
-    api Dependencies.koinViewModel
+    api Dependencies.koinMain
+    api Dependencies.koinJavaCompatibility
 
     testImplementation Dependencies.junit
     androidTestImplementation Dependencies.ext

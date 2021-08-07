@@ -41,8 +41,8 @@ object Dependencies {
 
     const val multidex = "com.android.support:multidex:${ThirdParty.multidex}"
 
-    const val koin = "org.koin:koin-androidx-scope:${ThirdParty.koin}"
-    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${ThirdParty.koin}"
+    const val koinMain = "io.insert-koin:koin-core:${ThirdParty.koin}"
+    const val koinJavaCompatibility = "io.insert-koin:koin-android-compat:${ThirdParty.koin}"
 
     const val hiltAndroid = "com.google.dagger:hilt-android:${Jetpack.hilt}"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Jetpack.hilt}"

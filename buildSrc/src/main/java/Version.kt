@@ -1,16 +1,16 @@
 object Gradle {
-    const val gradle = "4.0.0"
-    const val hiltAndroidGradlePlugin = "2.28-alpha"
+    const val gradle = "7.0.0"
+    const val hiltAndroidGradlePlugin = "2.37"
 }
 
 object Android {
     const val compileSdkVersion = 30
-    const val buildToolsVersion = "29.0.3"
+    const val buildToolsVersion = "30.0.2"
 }
 
 object DefaultConfig {
     const val applicationId = "com.jqk.baseapplication"
-    const val minSdkVersion = 19
+    const val minSdkVersion = 21
     const val targetSdkVersion = 30
     const val versionCode = 1
     const val versionName = "1.0"
@@ -23,7 +23,7 @@ object Java {
 }
 
 object Kotlin {
-    const val kotlin = "1.3.72"
+    const val kotlin = "1.5.10"
     const val jvmTarget = 1.8
 
     const val coroutines = "1.1.1"
@@ -39,11 +39,12 @@ object AndroidX {
 }
 
 object Jetpack {
-    const val hilt = "2.28-alpha"
+    const val hilt = "2.37"
     const val hiltJetpack = "1.0.0-alpha01"
-    const val room = "2.2.6"
+    const val room = "2.3.0"
     const val navigation = "2.3.3"
     const val navigationJetpack = "1.0.0-alpha08"
+    const val compose = "1.0.0"
 }
 
 object ThirdParty {
@@ -61,7 +62,7 @@ object ThirdParty {
 
     const val multidex = "1.0.3"
 
-    const val koin = "2.2.2"
+    const val koin = "3.1.2"
 }
 
 object Test {

@@ -49,6 +49,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ':common')
 
+    implementation Dependencies.arouterApi
     kapt Dependencies.arouterCompiler
 
     testImplementation Dependencies.junit
