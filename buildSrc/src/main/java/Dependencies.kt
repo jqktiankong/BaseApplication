@@ -64,6 +64,13 @@ object Dependencies {
     const val navigationCompose =
         "androidx.navigation:navigation-compose:${Jetpack.navigationJetpack}"
 
+    const val composeUi = "androidx.compose.ui:ui:${Jetpack.compose}"
+    const val composeMaterial = "androidx.compose.material:material:${Jetpack.compose}"
+    const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Jetpack.compose}"
+    const val composeActivity = "androidx.activity:activity-compose:${Jetpack.composeActivity}"
+    const val composeUiJnut = "androidx.compose.ui:ui-test-junit4:${Jetpack.compose}"
+    const val composeDebug = "androidx.compose.ui:ui-tooling:${Jetpack.compose}"
+
     const val junit = "junit:junit:${Test.junit}"
     const val ext = "androidx.test.ext:junit:${Test.ext}"
     const val espresso = "androidx.test.espresso:espresso-core:${Test.espresso}"

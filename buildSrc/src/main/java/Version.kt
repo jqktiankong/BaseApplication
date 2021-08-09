@@ -45,6 +45,7 @@ object Jetpack {
     const val navigation = "2.3.3"
     const val navigationJetpack = "1.0.0-alpha08"
     const val compose = "1.0.0"
+    const val composeActivity = "1.3.0-alpha06"
 }
 
 object ThirdParty {

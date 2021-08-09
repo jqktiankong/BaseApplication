@@ -13,7 +13,6 @@ import com.jqk.common.arouter.bean.ParamData
 import com.jqk.common.base.BaseVBActivity
 import com.jqk.login.databinding.LoginActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.login_activity_login.*
 
 @AndroidEntryPoint
 @Route(path = LoginActivity.PATH)
@@ -35,7 +34,7 @@ class LoginActivity : BaseVBActivity<LoginActivityLoginBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         ARouter.getInstance().inject(this)
 
-        btLogin.setOnClickListener {
+        binding.btLogin.setOnClickListener {
             RouterProvider.settingRouter?.showSettingUI()
         }
     }

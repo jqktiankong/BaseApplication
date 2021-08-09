@@ -1,13 +1,6 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
+apply from: '../publicModuleBuild.gradle'
 
 android {
-    compileSdkVersion Android.compileSdkVersion
-    buildToolsVersion Android.buildToolsVersion
-
     defaultConfig {
         minSdkVersion DefaultConfig.minSdkVersion
         targetSdkVersion DefaultConfig.targetSdkVersion
@@ -22,19 +15,6 @@ android {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
-    }
-
-    compileOptions {
-        sourceCompatibility Java.javaVersion
-        targetCompatibility Java.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = Kotlin.jvmTarget
-    }
-
-    buildFeatures {
-        viewBinding = true
     }
 
     buildTypes {
@@ -58,21 +38,13 @@ dependencies {
     api Dependencies.kotlinxCoroutinesCore
     api Dependencies.kotlinxCoroutinesAndroid
 
-    implementation Dependencies.hiltAndroid
-    kapt Dependencies.hiltAndroidCompiler
-    implementation Dependencies.hiltLifecycleViewmodel
-    kapt Dependencies.hiltCompiler
-    annotationProcessor Dependencies.hiltCompiler
-
     implementation Dependencies.roomRuntime
     kapt Dependencies.roomCompiler
     implementation Dependencies.roomKtx
-    testImplementation Dependencies.roomTesting
 
     api Dependencies.navigationFragment
     api Dependencies.navigationUi
     api Dependencies.navigationModule
-    androidTestImplementation Dependencies.navigationTesting
 
     api Dependencies.retrofit
     api Dependencies.converterGson
@@ -87,16 +59,15 @@ dependencies {
     api Dependencies.eventbus
     api Dependencies.rxpermissions
 
-    implementation Dependencies.arouterApi
-    kapt Dependencies.arouterCompiler
+    api Dependencies.arouterApi
 
     api Dependencies.utilcodex
 
     api Dependencies.koinMain
     api Dependencies.koinJavaCompatibility
 
-    testImplementation Dependencies.junit
-    androidTestImplementation Dependencies.ext
-    androidTestImplementation Dependencies.espresso
-
+    api Dependencies.composeUi
+    api Dependencies.composeMaterial
+    api Dependencies.composeUiToolingPreview
+    api Dependencies.composeActivity
 }

@@ -1,7 +1,28 @@
 package com.jqk.common.arouter.bean
 
+import android.os.Parcel
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
-data class ParamData(val param1: String) : Parcelable {}
+data class ParamData(val param1: String?) : Parcelable {
+    constructor(parcel: Parcel) : this(parcel.readString()) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(param1)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<ParamData> {
+        override fun createFromParcel(parcel: Parcel): ParamData {
+            return ParamData(parcel)
+        }
+
+        override fun newArray(size: Int): Array<ParamData?> {
+            return arrayOfNulls(size)
+        }
+    }
+
+}

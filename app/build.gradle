@@ -1,12 +1,6 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'dagger.hilt.android.plugin'
+apply from: '../publicAppBuild.gradle'
 
 android {
-    compileSdkVersion Android.compileSdkVersion
-    buildToolsVersion Android.buildToolsVersion
 
     defaultConfig {
         applicationId DefaultConfig.applicationId
@@ -32,32 +26,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    compileOptions {
-        sourceCompatibility Java.javaVersion
-        targetCompatibility Java.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = Kotlin.jvmTarget
-        useIR = true
-    }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion Jetpack.compose
-        kotlinCompilerVersion Kotlin.kotlin
-    }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
-    }
-
-    buildFeatures{
-         viewBinding = true
-    }
 }
 
 dependencies {
@@ -68,26 +36,4 @@ dependencies {
 //    implementation project(path: ':CommonLibrary:commonLibrary')
 
     implementation Dependencies.multidex
-
-    implementation Dependencies.hiltAndroid
-    kapt Dependencies.hiltAndroidCompiler
-    implementation Dependencies.hiltLifecycleViewmodel
-    kapt Dependencies.hiltCompiler
-    annotationProcessor Dependencies.hiltCompiler
-
-    implementation Dependencies.arouterApi
-    kapt Dependencies.arouterCompiler
-
-    implementation "androidx.compose.ui:ui:$Jetpack.compose"
-    implementation "androidx.compose.material:material:$Jetpack.compose"
-    implementation "androidx.compose.ui:ui-tooling-preview:$Jetpack.compose"
-    implementation 'androidx.activity:activity-compose:1.3.0-alpha06'
-
-    testImplementation Dependencies.junit
-    androidTestImplementation Dependencies.ext
-    androidTestImplementation Dependencies.espresso
-
-
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$Jetpack.compose"
-    debugImplementation "androidx.compose.ui:ui-tooling:$Jetpack.compose"
 }

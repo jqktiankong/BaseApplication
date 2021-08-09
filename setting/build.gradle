@@ -1,14 +1,6 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-android-extensions'
-    id 'kotlin-kapt'
-}
+apply from: '../publicModuleBuild.gradle'
 
 android {
-    compileSdkVersion Android.compileSdkVersion
-    buildToolsVersion Android.buildToolsVersion
-
     defaultConfig {
         minSdkVersion DefaultConfig.minSdkVersion
         targetSdkVersion DefaultConfig.targetSdkVersion
@@ -24,24 +16,11 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility Java.javaVersion
-        targetCompatibility Java.javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = Kotlin.jvmTarget
-    }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-    }
-
-    buildFeatures {
-        viewBinding = true
     }
 }
 
@@ -49,10 +28,5 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ':common')
 
-    implementation Dependencies.arouterApi
     kapt Dependencies.arouterCompiler
-
-    testImplementation Dependencies.junit
-    androidTestImplementation Dependencies.ext
-    androidTestImplementation Dependencies.espresso
 }
