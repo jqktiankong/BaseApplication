@@ -70,4 +70,6 @@ dependencies {
     api Dependencies.composeMaterial
     api Dependencies.composeUiToolingPreview
     api Dependencies.composeActivity
+
+    api Dependencies.livedataKtx
 }

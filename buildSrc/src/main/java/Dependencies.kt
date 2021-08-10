@@ -64,6 +64,8 @@ object Dependencies {
     const val navigationCompose =
         "androidx.navigation:navigation-compose:${Jetpack.navigationJetpack}"
 
+    const val livedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Jetpack.ktx}"
+
     const val composeUi = "androidx.compose.ui:ui:${Jetpack.compose}"
     const val composeMaterial = "androidx.compose.material:material:${Jetpack.compose}"
     const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview:${Jetpack.compose}"

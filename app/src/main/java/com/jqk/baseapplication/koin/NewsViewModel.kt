@@ -9,6 +9,9 @@ import com.jqk.common.db.User
 import com.jqk.common.network.retrofit.RetrofitService
 import com.jqk.common.network.retrofit.bean.HttpResult
 import com.jqk.common.network.retrofit.bean.News
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import org.koin.java.KoinJavaComponent.inject
 
@@ -18,6 +21,17 @@ class NewsViewModel constructor(
 
     val newsLiveData: MutableLiveData<HttpResult<News>> = MutableLiveData()
     val insertLiveData: MutableLiveData<Long> = MutableLiveData()
+
+    val newsLiveData2 = liveData {
+        emit(
+            newsModel
+                .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+        )
+
+        emitSource(newsLiveData)
+    }
+
+    val newsLiveData3 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
 
     fun getNews() {
         launch {
