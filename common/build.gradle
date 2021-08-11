@@ -71,5 +71,7 @@ dependencies {
     api Dependencies.composeUiToolingPreview
     api Dependencies.composeActivity
 
-    api Dependencies.livedataKtx
+    api Dependencies.lifecycleLivedata
+    api Dependencies.lifecycleRuntime
+    api Dependencies.lifecycleViewmodel
 }

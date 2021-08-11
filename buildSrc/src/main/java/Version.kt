@@ -46,7 +46,7 @@ object Jetpack {
     const val navigationJetpack = "1.0.0-alpha08"
     const val compose = "1.0.0"
     const val composeActivity = "1.3.0-alpha06"
-    const val ktx = "2.2.0"
+    const val lifecycle = "2.4.0-alpha03"
 }
 
 object ThirdParty {

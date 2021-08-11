@@ -6,14 +6,11 @@ import com.jqk.common.base.BaseViewModel
 import com.jqk.common.base.onFailure
 import com.jqk.common.base.onSuccess
 import com.jqk.common.db.User
-import com.jqk.common.network.retrofit.RetrofitService
 import com.jqk.common.network.retrofit.bean.HttpResult
 import com.jqk.common.network.retrofit.bean.News
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
 import kotlinx.coroutines.launch
-import org.koin.java.KoinJavaComponent.inject
 
 class NewsViewModel constructor(
     private val newsModel: NewsModel
@@ -31,7 +28,18 @@ class NewsViewModel constructor(
         emitSource(newsLiveData)
     }
 
+    // 普通Flow
     val newsLiveData3 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+
+    // SharedFlow
+    val newSharedFlow = MutableSharedFlow<HttpResult<News>>(0, 0)
+    val newSharedFlow2 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+        .shareIn(viewModelScope, WhileSubscribed())
+
+    // StateFlow
+    val newStateFlow = MutableStateFlow(HttpResult<News>())
+    val newStateFlow2 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
+        .stateIn(viewModelScope, WhileSubscribed(5000), HttpResult<News>())
 
     fun getNews() {
         launch {
@@ -59,6 +67,10 @@ class NewsViewModel constructor(
                 Log.d("news", "onFailure = $it")
             }
         )
+    }
+
+    suspend fun getNewsBySharedFlow() {
+        newSharedFlow.emit(newsModel.getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6"))
     }
 
     fun insert(user: User) {
