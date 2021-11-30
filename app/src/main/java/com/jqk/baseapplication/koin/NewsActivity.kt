@@ -1,13 +1,13 @@
 package com.jqk.baseapplication.koin
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.LogUtils
 import com.jqk.baseapplication.databinding.ActivityNewsBinding
 import com.jqk.common.arouter.RouterProvider
 import com.jqk.common.arouter.bean.ParamData
@@ -69,7 +69,7 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
         lifecycleScope.launch {
             this@NewsActivity.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.newSharedFlow2.collect {
-                    LogUtils.d("News4 = $it")
+                    Log.d("news", "News4 = $it")
                 }
             }
         }
@@ -78,15 +78,15 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
     override fun addLiveData() {
         viewModel.apply {
             newsLiveData.observe(this@NewsActivity, Observer {
-                LogUtils.d("News = $it")
+                Log.d("news", "News = $it")
             })
 
             insertLiveData.observe(this@NewsActivity, Observer {
-                LogUtils.d("Insert = $it")
+                Log.d("news", "Insert = $it")
             })
 
             newsLiveData2.observe(this@NewsActivity, {
-                LogUtils.d("News2 = $it")
+                Log.d("news", "News2 = $it")
             })
         }
     }

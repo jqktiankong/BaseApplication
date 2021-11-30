@@ -37,8 +37,6 @@ object Dependencies {
     const val arouterApi = "com.alibaba:arouter-api:${ThirdParty.aouter}"
     const val arouterCompiler = "com.alibaba:arouter-compiler:${ThirdParty.aouter}"
 
-    const val utilcodex = "com.blankj:utilcodex:${ThirdParty.utilcodex}"
-
     const val multidex = "com.android.support:multidex:${ThirdParty.multidex}"
 
     const val koinMain = "io.insert-koin:koin-core:${ThirdParty.koin}"

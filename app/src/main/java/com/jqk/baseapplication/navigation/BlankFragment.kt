@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.blankj.utilcode.util.LogUtils
 import com.jqk.baseapplication.R
 import com.jqk.baseapplication.databinding.FragmentBlankBinding
 import com.jqk.common.base.BaseVBFragment
@@ -39,7 +38,6 @@ class BlankFragment : BaseVBFragment<FragmentBlankBinding>() {
     }
 
     override fun initData() {
-        LogUtils.d("fragment initData")
     }
 
     override fun addLiveData() {

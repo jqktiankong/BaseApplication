@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import com.alibaba.android.arouter.facade.annotation.Autowired
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.LogUtils
 import com.jqk.common.arouter.RouterProvider
 import com.jqk.common.arouter.bean.ParamData
 import com.jqk.common.base.BaseVBActivity
@@ -25,7 +24,7 @@ class LoginActivity : BaseVBActivity<LoginActivityLoginBinding>() {
     @Autowired(name = EXTRA_PARAM2)
     var param2: ParamData? = null
 
-    private val viewModel: NewsViewModel by viewModels()
+    private val viewModel: NewsViewModel2 by viewModels()
 
     override fun initViewBinding(): LoginActivityLoginBinding {
         return LoginActivityLoginBinding.inflate(layoutInflater)
@@ -40,9 +39,6 @@ class LoginActivity : BaseVBActivity<LoginActivityLoginBinding>() {
     }
 
     override fun initData() {
-        LogUtils.d("param  = $param")
-        LogUtils.d("param2  = $param2")
-
         viewModel.getNews()
     }
 

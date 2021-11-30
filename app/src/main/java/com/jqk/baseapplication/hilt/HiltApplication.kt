@@ -4,9 +4,9 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
-import com.blankj.utilcode.util.AppUtils
-import com.blankj.utilcode.util.LogUtils
 import com.jqk.baseapplication.koin.appModule
+import com.jqk.common.util.utils.AppUtils
+import com.jqk.common.util.utils.Utils
 import dagger.hilt.android.HiltAndroidApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -25,7 +25,7 @@ class HiltApplication : Application() {
         initARouter(this)
         initKoin()
 
-        LogUtils.getConfig().setBorderSwitch(false)
+        Utils.init(this)
     }
 
     private fun initARouter(app: Application) {

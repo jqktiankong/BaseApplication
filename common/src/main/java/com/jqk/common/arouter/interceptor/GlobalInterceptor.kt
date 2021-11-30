@@ -5,7 +5,7 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.annotation.Interceptor
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback
 import com.alibaba.android.arouter.facade.template.IInterceptor
-import com.blankj.utilcode.util.SPUtils
+import com.jqk.common.util.utils.SPUtils
 
 @Interceptor(name = LoginInterceptor.PATH, priority = 9)
 class LoginInterceptor : IInterceptor {

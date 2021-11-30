@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
-import com.blankj.utilcode.util.LogUtils
 import com.cvnavi.settings.expand.setOnThrottledClickListener
 import com.jqk.baseapplication.databinding.DialogMBinding
 import com.jqk.common.base.BaseDialogFragment
@@ -39,8 +38,6 @@ class MDialog : BaseDialogFragment<DialogMBinding>() {
 
     override fun initData() {
         val str = arguments?.getString(EXTRA_xxx)
-
-        LogUtils.d("str = $str")
     }
 
     companion object {
