@@ -1,13 +1,14 @@
 package com.jqk.login
 
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
 import com.jqk.common.base.BaseViewModel
 import com.jqk.common.base.onFailure
 import com.jqk.common.base.onSuccess
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class NewsViewModel2 @ViewModelInject constructor(private val newsModel: NewsModel) :
-    BaseViewModel() {
+@HiltViewModel
+class NewsViewModel2 @Inject constructor(private val newsModel: NewsModel) : BaseViewModel() {
 
     fun getNews() {
         launch {

@@ -40,7 +40,7 @@ object AndroidX {
 
 object Jetpack {
     const val hilt = "2.37"
-    const val hiltJetpack = "1.0.0-alpha01"
+    const val hiltJetpack = "1.0.0-alpha03"
     const val room = "2.3.0"
     const val navigation = "2.3.3"
     const val navigationJetpack = "1.0.0-alpha08"
