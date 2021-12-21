@@ -1,15 +1,11 @@
-apply from: '../publicAppBuild.gradle'
+apply from: '../publicModuleBuild.gradle'
 
 android {
-
     defaultConfig {
-        applicationId DefaultConfig.applicationId
         minSdkVersion DefaultConfig.minSdkVersion
         targetSdkVersion DefaultConfig.targetSdkVersion
         versionCode DefaultConfig.versionCode
         versionName DefaultConfig.versionName
-
-        multiDexEnabled true
 
         testInstrumentationRunner DefaultConfig.testInstrumentationRunner
 
@@ -28,14 +24,16 @@ android {
     }
 }
 
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ':common')
-    implementation project(path: ':login')
-    implementation project(path: ':setting')
-//    implementation project(path: ':CommonLibrary:commonLibrary')
 
-    implementation Dependencies.multidex
-    implementation project(path: ':jsbridge')
-//    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
+    implementation Dependencies.hiltAndroid
+    kapt Dependencies.hiltAndroidCompiler
+    implementation Dependencies.hiltLifecycleViewmodel
+    kapt Dependencies.hiltCompiler
+    annotationProcessor Dependencies.hiltCompiler
+
+    kapt Dependencies.arouterCompiler
 }

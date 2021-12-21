@@ -8,3 +8,4 @@ include ':app'
 //include ':CommonLibrary:commonLibrary'
 
 rootProject.name = "BaseApplication"
+include ':jsbridge'
