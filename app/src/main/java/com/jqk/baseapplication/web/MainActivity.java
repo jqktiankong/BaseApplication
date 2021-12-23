@@ -21,17 +21,13 @@ import com.jqk.baseapplication.R;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private final String TAG = "MainActivity";
+    private final String TAG = "MainActivity";
 
-	BridgeWebView webView;
+    BridgeWebView webView;
 
-	Button button;
+    Button button;
 
-	int RESULT_CODE = 0;
-
-	ValueCallback<Uri> mUploadMessage;
-
-	ValueCallback<Uri[]> mUploadMessageArray;
+    int RESULT_CODE = 0;
 
     static class Location {
         String address;
@@ -40,58 +36,45 @@ public class MainActivity extends Activity implements OnClickListener {
     static class User {
         String name;
         Location location;
-        String testStr;
     }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_web);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_web);
 
         webView = (BridgeWebView) findViewById(R.id.webView);
 
-		button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.button);
 
-		button.setOnClickListener(this);
+        button.setOnClickListener(this);
 
-		webView.setDefaultHandler(new DefaultHandler());
+        webView.setDefaultHandler(new DefaultHandler() {
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                Log.d("TAG", "data = " + data);
+                function.onCallBack(data);
+            }
+        });
 
-		webView.setWebChromeClient(new WebChromeClient() {
+        webView.loadUrl("file:///android_asset/demo.html");
 
-			@SuppressWarnings("unused")
-			public void openFileChooser(ValueCallback<Uri> uploadMsg, String AcceptType, String capture) {
-				this.openFileChooser(uploadMsg);
-			}
+        webView.registerHandler("submitFromWeb", new BridgeHandler() {
 
-			@SuppressWarnings("unused")
-			public void openFileChooser(ValueCallback<Uri> uploadMsg, String AcceptType) {
-				this.openFileChooser(uploadMsg);
-			}
-
-			public void openFileChooser(ValueCallback<Uri> uploadMsg) {
-				mUploadMessage = uploadMsg;
-				pickFile();
-			}
-
-			@Override
-			public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
-				mUploadMessageArray = filePathCallback;
-				pickFile();
-				return false;
-			}
-		});
-
-		webView.loadUrl("file:///android_asset/demo.html");
-
-		webView.registerHandler("submitFromWeb", new BridgeHandler() {
-
-			@Override
-			public void handler(String data, CallBackFunction function) {
-				Log.i(TAG, "handler = submitFromWeb, data from web = " + data);
+            @Override
+            public void handler(String data, CallBackFunction function) {
+                Log.i(TAG, "handler = submitFromWeb, data from web = " + data);
                 function.onCallBack("submitFromWeb exe, response data 中文 from Java");
-			}
+            }
 
-		});
+        });
+
+        webView.registerHandler("pickFile", new BridgeHandler() {
+            @Override
+            public void handler(String var1, CallBackFunction var2) {
+                pickFile();
+            }
+        });
 
         User user = new User();
         Location location = new Location();
@@ -102,57 +85,42 @@ public class MainActivity extends Activity implements OnClickListener {
         webView.callHandler("functionInJs", new Gson().toJson(user), new CallBackFunction() {
             @Override
             public void onCallBack(String data) {
-
+                Log.i(TAG, "onCallBack = " + data);
             }
         });
 
         webView.send("hello");
+    }
 
-	}
+    public void pickFile() {
+        Intent chooserIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        chooserIntent.setType("image/*");
+        startActivityForResult(chooserIntent, RESULT_CODE);
+    }
 
-	public void pickFile() {
-		Intent chooserIntent = new Intent(Intent.ACTION_GET_CONTENT);
-		chooserIntent.setType("image/*");
-		startActivityForResult(chooserIntent, RESULT_CODE);
-	}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == RESULT_CODE) {
+            if (intent != null && resultCode == RESULT_OK && intent.getData() != null) {
+                Log.i(TAG, "intent.getData() = " + intent.getData().toString());
+                webView.callHandler("pickFile", intent.getData().getPath(), new CallBackFunction() {
+                    @Override
+                    public void onCallBack(String data) {
+                    }
+                });
+            }
+        }
+    }
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		if (requestCode == RESULT_CODE) {
-			if (null == mUploadMessage && null == mUploadMessageArray){
-				return;
-			}
-			if(null!= mUploadMessage && null == mUploadMessageArray){
-				Uri result = intent == null || resultCode != RESULT_OK ? null : intent.getData();
-				mUploadMessage.onReceiveValue(result);
-				mUploadMessage = null;
-			}
-
-			if(null == mUploadMessage && null != mUploadMessageArray){
-				Uri result = intent == null || resultCode != RESULT_OK ? null : intent.getData();
-				if (result != null) {
-					mUploadMessageArray.onReceiveValue(new Uri[]{result});
-				}
-				mUploadMessageArray = null;
-			}
-
-		}
-	}
-
-	@Override
-	public void onClick(View v) {
-		if (button.equals(v)) {
+    @Override
+    public void onClick(View v) {
+        if (button.equals(v)) {
             webView.callHandler("functionInJs", "data from Java", new CallBackFunction() {
-
-				@Override
-				public void onCallBack(String data) {
-					// TODO Auto-generated method stub
-					Log.i(TAG, "reponse data from js " + data);
-				}
-
-			});
-		}
-
-	}
-
+                @Override
+                public void onCallBack(String data) {
+                    Log.i(TAG, "reponse data from js " + data);
+                }
+            });
+        }
+    }
 }
