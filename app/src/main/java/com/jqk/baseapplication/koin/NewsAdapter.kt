@@ -21,7 +21,7 @@ class NewsAdapter(private val context: Context, private val dataList: List<News.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         ItemNewsBinding.bind(holder.itemView).apply {
-            title.text = dataList[position].title
+            tvTitle.text = dataList[position].title
         }
     }
 

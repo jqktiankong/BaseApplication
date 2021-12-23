@@ -1,7 +1,6 @@
 package com.jqk.baseapplication.hilt.news
 
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.jqk.common.base.BaseViewModel
 import com.jqk.common.base.onFailure
@@ -9,9 +8,12 @@ import com.jqk.common.base.onSuccess
 import com.jqk.common.db.User
 import com.jqk.common.network.retrofit.bean.HttpResult
 import com.jqk.common.network.retrofit.bean.News
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewsViewModel @ViewModelInject constructor(private val newsModel: NewsModel) :
+@HiltViewModel
+class NewsViewModel @Inject constructor(private val newsModel: NewsModel) :
     BaseViewModel() {
     val newsLiveData: MutableLiveData<HttpResult<News>> = MutableLiveData()
     val insertLiveData: MutableLiveData<Long> = MutableLiveData()

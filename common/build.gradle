@@ -64,6 +64,8 @@ dependencies {
     api Dependencies.koinMain
     api Dependencies.koinJavaCompatibility
 
+    api Dependencies.glide
+
     api Dependencies.composeUi
     api Dependencies.composeMaterial
     api Dependencies.composeUiToolingPreview

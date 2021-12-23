@@ -37,5 +37,4 @@ dependencies {
 
     implementation Dependencies.multidex
     implementation project(path: ':jsbridge')
-//    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
 }

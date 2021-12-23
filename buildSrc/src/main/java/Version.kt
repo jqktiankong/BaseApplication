@@ -63,6 +63,8 @@ object ThirdParty {
     const val multidex = "1.0.3"
 
     const val koin = "3.1.2"
+
+    const val glide = "4.12.0"
 }
 
 object Test {

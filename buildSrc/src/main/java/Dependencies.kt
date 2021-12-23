@@ -20,28 +20,6 @@ object Dependencies {
     const val kotlinxCoroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Kotlin.coroutines}"
 
-    const val retrofit = "com.squareup.retrofit2:retrofit:${ThirdParty.retrofit2}"
-    const val converterGson = "com.squareup.retrofit2:converter-gson:${ThirdParty.retrofit2}"
-    const val adapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:${ThirdParty.retrofit2}"
-    const val converterScalars = "com.squareup.retrofit2:converter-scalars:${ThirdParty.retrofit2}"
-
-    const val okhttp = "com.squareup.okhttp3:okhttp:${ThirdParty.okhttp}"
-    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${ThirdParty.okhttp}"
-
-    const val rxjava = "io.reactivex.rxjava2:rxjava:${ThirdParty.rxjava}"
-    const val rxandroid = "io.reactivex.rxjava2:rxandroid:${ThirdParty.rxandroid}"
-
-    const val eventbus = "org.greenrobot:eventbus:${ThirdParty.eventbus}"
-    const val rxpermissions = "com.github.tbruyelle:rxpermissions:${ThirdParty.rxpermissions}"
-
-    const val arouterApi = "com.alibaba:arouter-api:${ThirdParty.aouter}"
-    const val arouterCompiler = "com.alibaba:arouter-compiler:${ThirdParty.aouter}"
-
-    const val multidex = "com.android.support:multidex:${ThirdParty.multidex}"
-
-    const val koinMain = "io.insert-koin:koin-core:${ThirdParty.koin}"
-    const val koinJavaCompatibility = "io.insert-koin:koin-android-compat:${ThirdParty.koin}"
-
     const val hiltAndroid = "com.google.dagger:hilt-android:${Jetpack.hilt}"
     const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Jetpack.hilt}"
     const val hiltLifecycleViewmodel =
@@ -72,6 +50,30 @@ object Dependencies {
     const val composeActivity = "androidx.activity:activity-compose:${Jetpack.composeActivity}"
     const val composeUiJnut = "androidx.compose.ui:ui-test-junit4:${Jetpack.compose}"
     const val composeDebug = "androidx.compose.ui:ui-tooling:${Jetpack.compose}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${ThirdParty.retrofit2}"
+    const val converterGson = "com.squareup.retrofit2:converter-gson:${ThirdParty.retrofit2}"
+    const val adapterRxjava2 = "com.squareup.retrofit2:adapter-rxjava2:${ThirdParty.retrofit2}"
+    const val converterScalars = "com.squareup.retrofit2:converter-scalars:${ThirdParty.retrofit2}"
+
+    const val okhttp = "com.squareup.okhttp3:okhttp:${ThirdParty.okhttp}"
+    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${ThirdParty.okhttp}"
+
+    const val rxjava = "io.reactivex.rxjava2:rxjava:${ThirdParty.rxjava}"
+    const val rxandroid = "io.reactivex.rxjava2:rxandroid:${ThirdParty.rxandroid}"
+
+    const val eventbus = "org.greenrobot:eventbus:${ThirdParty.eventbus}"
+    const val rxpermissions = "com.github.tbruyelle:rxpermissions:${ThirdParty.rxpermissions}"
+
+    const val arouterApi = "com.alibaba:arouter-api:${ThirdParty.aouter}"
+    const val arouterCompiler = "com.alibaba:arouter-compiler:${ThirdParty.aouter}"
+
+    const val multidex = "com.android.support:multidex:${ThirdParty.multidex}"
+
+    const val koinMain = "io.insert-koin:koin-core:${ThirdParty.koin}"
+    const val koinJavaCompatibility = "io.insert-koin:koin-android-compat:${ThirdParty.koin}"
+
+    const val glide = "com.github.bumptech.glide:glide:${ThirdParty.glide}"
 
     const val junit = "junit:junit:${Test.junit}"
     const val ext = "androidx.test.ext:junit:${Test.ext}"

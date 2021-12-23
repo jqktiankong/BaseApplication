@@ -15,31 +15,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity">
 
-        </activity>
-
-        <activity android:name=".MainActivity2">
-
-        </activity>
-        <activity android:name=".hilt.news.NewsActivity">
-
-        </activity>
-        <activity android:name=".navigation.MainActivity"></activity>
-        <activity android:name=".koin.NewsActivity">
-
-        </activity>
-        <activity android:name=".compose.ComposeActivity">
-
-        </activity>
-        <activity
-            android:name=".web.MainActivity"
+        <activity android:name=".MainActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".CommonActivity">
+
+        </activity>
+
+        <activity android:name=".DialogActivity">
+
+        </activity>
+        <activity android:name=".hilt.news.NewsActivity">
+
+        </activity>
+        <activity android:name=".navigation.MainActivity" />
+        <activity android:name=".koin.NewsActivity">
+
+        </activity>
+        <activity android:name=".compose.ComposeActivity">
+
+        </activity>
+        <activity android:name=".web.MainActivity">
+
         </activity>
     </application>
 
