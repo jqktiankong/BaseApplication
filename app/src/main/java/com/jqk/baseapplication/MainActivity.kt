@@ -2,6 +2,7 @@ package com.jqk.baseapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Trace
 import com.jqk.baseapplication.compose.ComposeActivity
 import com.jqk.baseapplication.databinding.ActivityMainBinding
 import com.jqk.baseapplication.hilt.news.NewsActivity
@@ -14,6 +15,21 @@ import com.jqk.common.base.BaseVBActivity
  *  description :
  */
 class MainActivity : BaseVBActivity<ActivityMainBinding>() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        Trace.beginSection("MainActivity begin")
+        super.onCreate(savedInstanceState)
+    }
+
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+
+        if (hasFocus) {
+            Trace.endSection()
+        }
+    }
+
+
     override fun initViewBinding(): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
     }
