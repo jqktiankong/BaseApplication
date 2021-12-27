@@ -1,5 +1,6 @@
 package com.jqk.baseapplication.dialog
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -40,14 +41,24 @@ class MDialog : BaseDialogFragment<DialogMBinding>() {
         val str = arguments?.getString(EXTRA_xxx)
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        isShow = false
+    }
+
     companion object {
         const val EXTRA_xxx = "xxx"
 
-        val instance: MDialog by lazy {
-            MDialog()
-        }
+        var isShow = false
 
-        fun show(fragmentManager: FragmentManager) {
+        fun show(
+            fragmentManager: FragmentManager,
+            positiveClick: (() -> Unit),
+            negativeClick: (() -> Unit),
+            middleClick: (() -> Unit)
+        ) {
+            val instance = MDialog()
+
             val ft = fragmentManager.beginTransaction()
 
             val bundle = Bundle()
@@ -55,8 +66,9 @@ class MDialog : BaseDialogFragment<DialogMBinding>() {
             instance.arguments = bundle
 
             ft.add(instance, "MDialog")
-            if (!instance.isAdded && !instance.isVisible && !instance.isRemoving) {
+            if (!isShow) {
                 ft.commitAllowingStateLoss()
+                instance.setOnDialogClickListener(positiveClick, negativeClick, middleClick)
             }
         }
     }

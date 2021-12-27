@@ -78,4 +78,5 @@ object Dependencies {
     const val junit = "junit:junit:${Test.junit}"
     const val ext = "androidx.test.ext:junit:${Test.ext}"
     const val espresso = "androidx.test.espresso:espresso-core:${Test.espresso}"
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Test.leakcanary}"
 }

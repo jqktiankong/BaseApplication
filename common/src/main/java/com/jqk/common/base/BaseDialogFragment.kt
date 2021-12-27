@@ -56,26 +56,4 @@ abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
         this.negativeClick = negativeClick
         this.middleClick = middleClick
     }
-
-    // 这一部分需要手动复制
-    companion object {
-        const val EXTRA_xxx = "xxx"
-
-        val instance: DialogFragment by lazy {
-            DialogFragment()
-        }
-
-        fun show(fragmentManager: FragmentManager, tag: String) {
-            val ft = fragmentManager.beginTransaction()
-
-            val bundle = Bundle()
-            bundle.putString(EXTRA_xxx, "")
-            instance.arguments = bundle
-
-            ft.add(instance, "tag")
-            if (!instance.isAdded && !instance.isVisible && !instance.isRemoving) {
-                ft.commitAllowingStateLoss()
-            }
-        }
-    }
 }

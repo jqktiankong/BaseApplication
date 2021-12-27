@@ -37,4 +37,6 @@ dependencies {
 
     implementation Dependencies.multidex
     implementation project(path: ':jsbridge')
+
+    debugImplementation Dependencies.leakcanary
 }

@@ -71,6 +71,7 @@ object Test {
     const val junit = "4.12"
     const val ext = "1.1.1"
     const val espresso = "3.3.0"
+    const val leakcanary = "2.7"
 }
 
 

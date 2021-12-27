@@ -12,11 +12,7 @@ class DialogActivity : BaseVBActivity<ActivityDialogBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.btShowDialog.setOnThrottledClickListener {
-            MDialog.show(supportFragmentManager)
-            MDialog.instance.setOnDialogClickListener({
-            }, {
-            }, {
-            })
+            MDialog.show(supportFragmentManager, {}, {}, {})
         }
     }
 
