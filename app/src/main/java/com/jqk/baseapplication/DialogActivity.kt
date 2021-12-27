@@ -8,12 +8,23 @@ import com.jqk.baseapplication.dialog.MDialog
 
 class DialogActivity : BaseVBActivity<ActivityDialogBinding>() {
 
+    // 测试内存泄漏
+    companion object {
+        var sActivity: DialogActivity? = null
+    }
+
     override fun initViewBinding() = ActivityDialogBinding.inflate(layoutInflater)
 
     override fun initView(savedInstanceState: Bundle?) {
         binding.btShowDialog.setOnThrottledClickListener {
             MDialog.show(supportFragmentManager, {}, {}, {})
         }
+
+        binding.btFinish.setOnClickListener {
+            finish()
+        }
+
+        sActivity = this
     }
 
     override fun initData() {
