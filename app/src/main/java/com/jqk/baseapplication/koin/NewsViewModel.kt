@@ -3,64 +3,32 @@ package com.jqk.baseapplication.koin
 import android.util.Log
 import androidx.lifecycle.*
 import com.jqk.common.base.BaseViewModel
-import com.jqk.common.base.onFailure
-import com.jqk.common.base.onSuccess
 import com.jqk.common.db.User
 import com.jqk.common.network.retrofit.bean.HttpResult
 import com.jqk.common.network.retrofit.bean.News
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
 import kotlinx.coroutines.launch
 
 class NewsViewModel constructor(
     private val newsModel: NewsModel
 ) : BaseViewModel() {
+    private val _newsLiveData: MutableLiveData<HttpResult<News>> = MutableLiveData()
+    val newsLiveData: LiveData<HttpResult<News>> = _newsLiveData
 
-    val newsLiveData: MutableLiveData<HttpResult<News>> = MutableLiveData()
-    val insertLiveData: MutableLiveData<Long> = MutableLiveData()
+    private val _insertLiveData: MutableLiveData<Long> = MutableLiveData()
+    val insertLiveData: LiveData<Long> = _insertLiveData
 
-    val newsLiveData2 = liveData {
-        emit(
-            newsModel
-                .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
-        )
-
-        emitSource(newsLiveData)
-    }
-
-    // 普通Flow
-    val newsLiveData3 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
-
-    // SharedFlow
-    val newSharedFlow = MutableSharedFlow<HttpResult<News>>(0, 0)
-    val newSharedFlow2 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
-        .shareIn(viewModelScope, WhileSubscribed())
-
-    // StateFlow
-    val newStateFlow = MutableStateFlow(HttpResult<News>())
-    val newStateFlow2 = newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
-        .stateIn(viewModelScope, WhileSubscribed(5000), HttpResult<News>())
+    private val _newStateFlow = MutableStateFlow(HttpResult<News>())
+    val newStateFlow: StateFlow<HttpResult<News>> = _newStateFlow
 
     fun getNews() {
-        launch {
-            requestHttp {
-                newsModel
-                    .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
-            }.onSuccess {
-                newsLiveData.value = it
-                Log.d("news", "onSuccess = $it")
-            }.onFailure {
-                Log.d("news", "onFailure = $it")
-            }
-        }
-
         request(
             block = {
                 newsModel
                     .getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6")
             },
             success = {
-                newsLiveData.value = it
+                _newsLiveData.value = it
                 Log.d("news", "onSuccess = $it")
             },
             error = {
@@ -69,13 +37,17 @@ class NewsViewModel constructor(
         )
     }
 
-    suspend fun getNewsBySharedFlow() {
-        newSharedFlow.emit(newsModel.getNews("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6"))
+    fun getNewsByFlow() {
+        viewModelScope.launch {
+            newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6").collect {
+                _newStateFlow.value = it
+            }
+        }
     }
 
     fun insert(user: User) {
         viewModelScope.launch {
-            insertLiveData.value = newsModel.insert(user)
+            _insertLiveData.value = newsModel.insert(user)
         }
     }
 }

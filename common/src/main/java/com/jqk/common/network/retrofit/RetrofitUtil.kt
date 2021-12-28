@@ -13,8 +13,6 @@ object RetrofitUtil {
     private const val DEFAULT_TIMEOUT: Long = 30
 
     fun createRetrofitService(): RetrofitService {
-        Log.d("News", "加载")
-
         return Retrofit.Builder()
             .baseUrl("http://v.juhe.cn/toutiao/")
             .client(genericClient())

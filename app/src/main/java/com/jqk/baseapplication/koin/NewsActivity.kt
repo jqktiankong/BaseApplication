@@ -58,17 +58,12 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
     }
 
     override fun initData() {
-//        viewModel.getNews()
-//
-//        lifecycleScope.launch {
-//            viewModel.newsLiveData3.collect {
-//                LogUtils.d("News3 = $it")
-//            }
-//        }
+        viewModel.getNews()
+        viewModel.getNewsByFlow()
 
         lifecycleScope.launch {
             this@NewsActivity.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.newSharedFlow2.collect {
+                viewModel.newStateFlow.collect {
                     Log.d("news", "News4 = $it")
                 }
             }
@@ -83,10 +78,6 @@ class NewsActivity : BaseVBActivity<ActivityNewsBinding>() {
 
             insertLiveData.observe(this@NewsActivity, Observer {
                 Log.d("news", "Insert = $it")
-            })
-
-            newsLiveData2.observe(this@NewsActivity, {
-                Log.d("news", "News2 = $it")
             })
         }
     }
