@@ -38,7 +38,7 @@ class NewsViewModel constructor(
     }
 
     fun getNewsByFlow() {
-        viewModelScope.launch {
+        launchOnIO {
             newsModel.getNewsFlow("top", "93ff5c6fd6dc134fc69f6ffe3bc568a6").collect {
                 _newStateFlow.value = it
             }

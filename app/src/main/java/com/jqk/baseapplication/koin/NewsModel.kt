@@ -1,5 +1,6 @@
 package com.jqk.baseapplication.koin
 
+import android.util.Log
 import com.jqk.common.base.BaseModel
 import com.jqk.common.db.User
 import com.jqk.common.db.UserDao
