@@ -74,6 +74,9 @@ object Dependencies {
     const val koinJavaCompatibility = "io.insert-koin:koin-android-compat:${ThirdParty.koin}"
 
     const val glide = "com.github.bumptech.glide:glide:${ThirdParty.glide}"
+    const val coil = "io.coil-kt:coil:${ThirdParty.coil}"
+    const val coil_gif = "io.coil-kt:coil-gif:${ThirdParty.coil_gif}"
+    const val coil_svg = "io.coil-kt:coil-svg:${ThirdParty.coil_svg}"
 
     const val junit = "junit:junit:${Test.junit}"
     const val ext = "androidx.test.ext:junit:${Test.ext}"

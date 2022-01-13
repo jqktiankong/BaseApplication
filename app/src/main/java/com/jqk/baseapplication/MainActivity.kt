@@ -73,6 +73,10 @@ class MainActivity : BaseVBActivity<ActivityMainBinding>() {
             btCompose.setOnClickListener {
                 startActivity(Intent(this@MainActivity, ComposeActivity::class.java))
             }
+
+            btCoil.setOnClickListener {
+                startActivity(Intent(this@MainActivity, CoilActivity::class.java))
+            }
         }
     }
 

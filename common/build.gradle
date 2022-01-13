@@ -65,6 +65,9 @@ dependencies {
     api Dependencies.koinJavaCompatibility
 
     api Dependencies.glide
+    api Dependencies.coil
+    api Dependencies.coil_gif
+    api Dependencies.coil_svg
 
     api Dependencies.composeUi
     api Dependencies.composeMaterial

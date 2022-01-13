@@ -65,6 +65,9 @@ object ThirdParty {
     const val koin = "3.1.2"
 
     const val glide = "4.12.0"
+    const val coil = "1.4.0"
+    const val coil_gif = "1.4.0"
+    const val coil_svg = "1.4.0"
 }
 
 object Test {

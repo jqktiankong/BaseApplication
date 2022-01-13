@@ -47,4 +47,10 @@
         android:layout_height="wrap_content"
         android:text="compose" />
 
+    <Button
+        android:id="@+id/bt_coil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Coil"/>
+
 </LinearLayout>
