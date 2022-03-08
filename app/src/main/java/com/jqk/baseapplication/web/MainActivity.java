@@ -12,12 +12,12 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.Button;
 
-import com.github.lzyzsd.jsbridge.BridgeHandler;
-import com.github.lzyzsd.jsbridge.BridgeWebView;
-import com.github.lzyzsd.jsbridge.CallBackFunction;
-import com.github.lzyzsd.jsbridge.DefaultHandler;
 import com.google.gson.Gson;
 import com.jqk.baseapplication.R;
+import com.jqk.jsbridge.BridgeHandler;
+import com.jqk.jsbridge.BridgeWebView;
+import com.jqk.jsbridge.CallBackFunction;
+import com.jqk.jsbridge.DefaultHandler;
 
 public class MainActivity extends Activity implements OnClickListener {
 
