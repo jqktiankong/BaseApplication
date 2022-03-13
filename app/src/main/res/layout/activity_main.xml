@@ -53,4 +53,10 @@
         android:layout_height="wrap_content"
         android:text="Coil"/>
 
+    <Button
+        android:id="@+id/bt_jni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JNI"/>
+
 </LinearLayout>

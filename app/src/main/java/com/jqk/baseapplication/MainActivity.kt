@@ -7,6 +7,8 @@ import com.jqk.baseapplication.compose.ComposeActivity
 import com.jqk.baseapplication.databinding.ActivityMainBinding
 import com.jqk.baseapplication.hilt.news.NewsActivity
 import com.jqk.baseapplication.navigation.MainActivity
+import com.jqk.common.arouter.RouterProvider
+import com.jqk.common.arouter.bean.ParamData
 import com.jqk.common.base.BaseVBActivity
 
 /**
@@ -76,6 +78,10 @@ class MainActivity : BaseVBActivity<ActivityMainBinding>() {
 
             btCoil.setOnClickListener {
                 startActivity(Intent(this@MainActivity, CoilActivity::class.java))
+            }
+
+            btJni.setOnClickListener {
+                RouterProvider.jniRouter?.showJNIUI()
             }
         }
     }

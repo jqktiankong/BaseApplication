@@ -1,11 +1,13 @@
+include ':jni'
 include ':setting'
 include ':login'
 include ':common'
 include ':app'
+include ':jsbridge'
 
 //include ':CommonLibrary'
 //project(':CommonLibrary').projectDir = new File('D:\\MyProgram\\Android\\AndroidStudioProjects\\CommonLibrary')
 //include ':CommonLibrary:commonLibrary'
 
 rootProject.name = "BaseApplication"
-include ':jsbridge'
+

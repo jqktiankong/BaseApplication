@@ -1,6 +1,7 @@
 package com.jqk.common.arouter
 
 import com.alibaba.android.arouter.launcher.ARouter
+import com.jqk.common.arouter.irouter.IJNIRouter
 import com.jqk.common.arouter.irouter.ILoginRouter
 import com.jqk.common.arouter.irouter.ISettingRouter
 
@@ -11,6 +12,10 @@ object RouterProvider {
 
     val settingRouter by lazy {
         navigation(ISettingRouter::class.java)
+    }
+
+    val jniRouter by lazy {
+        navigation(IJNIRouter::class.java)
     }
 
     private fun <T> navigation(service: Class<out T>?): T? {
