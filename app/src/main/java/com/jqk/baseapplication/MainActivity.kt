@@ -22,7 +22,6 @@ class MainActivity : BaseVBActivity<ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
     }
 
-
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
 
