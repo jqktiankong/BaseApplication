@@ -1,15 +1,12 @@
-apply from: '../publicAppBuild.gradle'
+apply plugin: 'com.android.library'
+apply from: '../publicModuleBuild.gradle'
 
 android {
-
     defaultConfig {
-        applicationId DefaultConfig.applicationId
         minSdkVersion DefaultConfig.minSdkVersion
         targetSdkVersion DefaultConfig.targetSdkVersion
         versionCode DefaultConfig.versionCode
         versionName DefaultConfig.versionName
-
-        multiDexEnabled true
 
         testInstrumentationRunner DefaultConfig.testInstrumentationRunner
 
@@ -18,6 +15,11 @@ android {
                 arg("AROUTER_MODULE_NAME", project.getName())
             }
         }
+
+        // 生成so包的类型
+//        ndk {
+//            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+//        }
     }
 
     buildTypes {
@@ -26,23 +28,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ':module_common')
-    implementation project(path: ':module_jni')
-    implementation project(path: ':module_jsbridge')
 
-    if (isModuleLogin.toBoolean()) {
-        implementation project(path: ':com_login')
-    }
+    implementation Dependencies.hiltAndroid
+    kapt Dependencies.hiltAndroidCompiler
+    implementation Dependencies.hiltLifecycleViewmodel
+    kapt Dependencies.hiltCompiler
+    annotationProcessor Dependencies.hiltCompiler
 
-    if (isModuleSetting.toBoolean()) {
-        implementation project(path: ':com_setting')
-    }
-
-//    implementation project(path: ':CommonLibrary:commonLibrary')
-
-    debugImplementation Dependencies.leakcanary
+    kapt Dependencies.arouterCompiler
 }

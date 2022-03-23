@@ -1,9 +1,9 @@
-include ':jni'
-include ':setting'
-include ':login'
-include ':common'
+include ':module_jni'
+include ':com_setting'
+include ':com_login'
+include ':module_common'
 include ':app'
-include ':jsbridge'
+include ':module_jsbridge'
 
 //include ':CommonLibrary'
 //project(':CommonLibrary').projectDir = new File('D:\\MyProgram\\Android\\AndroidStudioProjects\\CommonLibrary')

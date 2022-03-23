@@ -1,21 +1,33 @@
-apply from: '../publicAppBuild.gradle'
+if (isModuleLogin.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+apply from: '../publicModuleBuild.gradle'
 
 android {
-
     defaultConfig {
-        applicationId DefaultConfig.applicationId
         minSdkVersion DefaultConfig.minSdkVersion
         targetSdkVersion DefaultConfig.targetSdkVersion
         versionCode DefaultConfig.versionCode
         versionName DefaultConfig.versionName
-
-        multiDexEnabled true
 
         testInstrumentationRunner DefaultConfig.testInstrumentationRunner
 
         kapt {
             arguments {
                 arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+
+        sourceSets {
+            main {
+                if (isModuleLogin.toBoolean()) {
+                    manifest.srcFile 'src/main/AndroidManifest.xml'
+                } else {
+                    manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                }
             }
         }
     }
@@ -31,18 +43,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(path: ':module_common')
-    implementation project(path: ':module_jni')
-    implementation project(path: ':module_jsbridge')
 
-    if (isModuleLogin.toBoolean()) {
-        implementation project(path: ':com_login')
-    }
-
-    if (isModuleSetting.toBoolean()) {
+    if (!isModuleLogin.toBoolean() && isModuleSetting.toBoolean()) {
         implementation project(path: ':com_setting')
     }
-
-//    implementation project(path: ':CommonLibrary:commonLibrary')
-
-    debugImplementation Dependencies.leakcanary
 }
